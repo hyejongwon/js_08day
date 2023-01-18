@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{border: 5px solid #000;min-width: 700px}
+        .one{width: 600px;height: 100px;border:1px solid red;margin: 10px;} 
+    </style>
+</head>
+<body>
+    <div class='box'>
+      
+    </div>
+    <script>
+        const box=document.querySelector('.box');
+        const data = ['./data_ex/jsonData-1.json','./data_ex/jsonData-2.json','./data_ex/jsonData-3.json','./data_ex/jsonData-4.json']
+      
+        //요소생성 
+        const mkElement = (num) =>{
+            let mkDiv = document.createElement('div');
+            mkDiv.setAttribute('class','one') 
+            mkDiv.innerText=num;
+            box.append(mkDiv)
+        }
+
+        const fnc = async() =>{
+            await fetch(data[0]).then(()=>{ mkElement('1')});
+            await fetch(data[1]).then(()=>{ mkElement('2')});
+            await fetch(data[2]).then(()=>{ mkElement('3')});
+            await fetch(data[3]).then(()=>{ mkElement('4')});
+        }
+        fnc();
+
+        //즉시실행 
+        (async ()=>{
+            await fetch(data[0]).then(()=>{ mkElement('1')});
+            await fetch(data[1]).then(()=>{ mkElement('2')});
+            await fetch(data[2]).then(()=>{ mkElement('3')});  
+            await fetch(data[3]).then(()=>{ mkElement('4')});
+        })()
+
+        //async await  
+        //await  진행중인 구문이 끝날때 까지 기다리게 하는 구문
+        // 감싸는 함수에서 async 를 붙여 한다. 
+         //async  함수 앞에 붙여서 비동기도 돌아가게 해준다. 
+    </script>
+</body>
+</html>
+
+<!-- 
+ ()=>{
+      ()=>{
+            ()=>{
+                 ()={
+
+                 }
+            }
+    }
+
+    ()=>()=>()=>()=>
+    promise 는 순서대로 진행 할 수 있도록  
+    원활한 진행을 위해 만들어졌다 (가독성 좋게)
+    프로미스는 생성자 함수 입니다. 
+    new Promise(a,b) 
+    resolve,reject => success / fail 
+    생성자 이기 때문에 변수에 할당한다.
+    임의의 함수를 만들어서 그 함수 내부에서 사용할 수 있도록 해준다. 
+    axios 
+ -->

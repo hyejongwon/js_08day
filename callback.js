@@ -15,7 +15,7 @@ const fnc3 = function (data,fnc) {
 
 let finalResult = fnc3(4,fnc2)
 
-console.log(finalResult)
+console.log(finalResult) //100
 
 /* fnc3 실행 = >  뒤에 fnc2 호출  =>*/
 
@@ -27,4 +27,14 @@ console.log(finalResult)
                  }
             }
     }
- } */
+
+    ()=>()=>()=>()=>
+    promise 는 순서대로 진행 할 수 있도록  
+    원활한 진행을 위해 만들어졌다 (가독성 좋게)
+    프로미스는 생성자 함수 입니다. 
+    new Promise(a,b) 
+    resolve,reject => success / fail 
+    생성자 이기 때문에 변수에 할당한다.
+    임의의 함수를 만들어서 그 함수 내부에서 사용할 수 있도록 해준다. 
+
+  */

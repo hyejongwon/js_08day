@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{border: 5px solid #000;min-width: 700px}
+        .one{width: 600px;height: 100px;border:1px solid red;margin: 10px;} 
+    </style>
+</head>
+<body>
+    <div class='box'>
+      
+    </div>
+    <script>
+        const box=document.querySelector('.box');
+        const fnc = () => {
+            return new Promise((resolve,reject)=>{
+               resolve();
+               
+            })
+        }
+        //요소생성 
+        const mkElement = (num) => { 
+            let mkDiv = document.createElement('div');
+            mkDiv.setAttribute('class','one');
+            mkDiv.innerText=num;
+            box.append(mkDiv);
+        }
+
+        fnc()
+        .then(()=>{mkElement('1')})
+        .then(()=>{mkElement('2')})
+        .then(()=>{mkElement('3')})
+        .catch((error)=>{
+            console.log("너 틀려서!")
+        })
+    </script>
+</body>
+</html>
+
+<!-- 
+ ()=>{
+      ()=>{
+            ()=>{
+                 ()={
+
+                 }
+            }
+    }
+
+    ()=>()=>()=>()=>
+    promise 는 순서대로 진행 할 수 있도록  
+    원활한 진행을 위해 만들어졌다 (가독성 좋게)
+    프로미스는 생성자 함수 입니다. 
+    new Promise(a,b) 
+    resolve,reject => success / fail 
+    생성자 이기 때문에 변수에 할당한다.
+    임의의 함수를 만들어서 그 함수 내부에서 사용할 수 있도록 해준다. 
+
+ -->

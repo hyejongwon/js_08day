@@ -1,8 +1,21 @@
 let newsData = [];
+let topics = document.querySelectorAll('.gnb>li');
+topics.forEach(ele=>ele.addEventListener('click',(e)=>getTopic(e)))
+const getTopic = async(e) =>{
+    let topic = e.target.dataset.topic;
+    let url = new URL(`https://api.newscatcherapi.com/v2/latest_headlines?countries=KR&topic=${topic}&page_size=5`);
+    let header = new Headers({'x-api-key':'M8BgsdkkdGk16YgxRrZCE0QrA8icMDvmvI6zyogncBA'})
+    let response = await fetch(url,{headers:header}) 
+    let data =   await response.json() ; 
+    newsData = data.articles;
+    console.log(newsData)
+    viewRender();
+
+}
 //최근 해당 토픽 해드라인 뉴스 가져오기 
 const getLatestHeadlines = async() => {
     let url = new URL(`https://api.newscatcherapi.com/v2/latest_headlines?countries=KR&topic=sport&page_size=5`);
-    let header = new Headers({'x-api-key':'api키'})
+    let header = new Headers({'x-api-key':'M8BgsdkkdGk16YgxRrZCE0QrA8icMDvmvI6zyogncBA'})
     let response = await fetch(url,{headers:header}) 
     let data =   await response.json() ; 
     newsData = data.articles;

@@ -1,0 +1,9 @@
+*{margin: 0;padding: 0;}
+ul,li,ol{list-style: none;}
+a{text-decoration: none;color:inherit}
+.head-line{
+    display: flex; 
+    margin-top: 20px;
+    justify-content: center;
+}
+.head-line img{width: 300px;margin:0 20px}
